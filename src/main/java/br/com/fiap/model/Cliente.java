@@ -1,17 +1,31 @@
 package br.com.fiap.model;
 
+import jakarta.persistence.*;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-
+@Entity
+@Table(name = "TB_CLIENTE", uniqueConstraints = {
+        @UniqueConstraint(name = "UK_EMAIL_CLIENTE", columnNames = "EMAIL_CLIENTE")
+})
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CLIENTE")
+    @SequenceGenerator(name = "SQ_CLIENTE", sequenceName = "SQ_CLIENTE")
+    @Column(name = "ID_CLIENTE")
     private long id;
 
+    @Column(name = "NM_CLIENTE")
     private String nome;
 
+    @Column(name = "EMAIL_CLIENTE")
     private String email;
 
+
+    @OneToMany(mappedBy = "cliente")
+    @OrderBy("data DESC")
     private Set<Pedido> pedidos = new LinkedHashSet<>();
 
     public Cliente() {
