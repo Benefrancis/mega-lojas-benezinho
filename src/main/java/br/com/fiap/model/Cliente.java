@@ -24,7 +24,7 @@ public class Cliente {
     private String email;
 
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @OrderBy("data DESC")
     private Set<Pedido> pedidos = new LinkedHashSet<>();
 

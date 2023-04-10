@@ -21,7 +21,7 @@ public class Categoria {
     @Column(name = "NM_CATEGORIA")
     private String nome;
 
-    @ManyToMany(mappedBy = "categorias")
+    @ManyToMany(mappedBy = "categorias", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @OrderBy("nome ASC")
     private Set<Produto> produtos = new LinkedHashSet<>();
 
