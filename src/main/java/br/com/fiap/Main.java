@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("maria-db");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("fiap");
         EntityManager manager = factory.createEntityManager();
 
         salvar(manager);
@@ -34,6 +34,7 @@ public class Main {
         var ipad = new Produto();
         ipad.setNome("Ipade");
         ipad.addCategoria(mobile).addCategoria(tablet);
+        ipad.setPreco(3000);
 
         var benezinho = new Cliente();
         benezinho.setNome("Benefrancis");
@@ -41,7 +42,8 @@ public class Main {
 
 
         var pedido = new Pedido();
-        pedido.addProduto(ipad).setCliente(benezinho).setData(LocalDateTime.now());
+        pedido.addProduto(ipad).setCliente(benezinho);
+        pedido.setData(LocalDateTime.now());
 
         manager.getTransaction().begin();
         manager.persist(pedido);
