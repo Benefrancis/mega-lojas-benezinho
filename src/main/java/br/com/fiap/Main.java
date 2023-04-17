@@ -74,9 +74,15 @@ public class Main {
         gustavo.addUnidade(sp);
         gustavo.addUnidade(vilaMariana);
 
+        Funcionario b = new Funcionario();
+        b.setMatricula("43334");
+        b.setEmail("beatriz.ffreitas@hotmail.com");
+        b.addUnidade(copa);
+        b.addUnidade(rj);
+
         manager.getTransaction().begin();
         Arrays.asList(matriz, sp, rj, vilaMariana, imirim, copa).forEach(manager::persist);
-        Arrays.asList(prof, c, claudio, gustavo).forEach(manager::persist);
+        Arrays.asList(prof, c, claudio, gustavo, b).forEach(manager::persist);
 
         matriz.setChefe(prof);
         sp.setChefe(gustavo);
