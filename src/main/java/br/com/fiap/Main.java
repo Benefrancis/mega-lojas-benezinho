@@ -84,6 +84,8 @@ public class Main {
         copa.setChefe(c);
         imirim.setChefe(gustavo);
         vilaMariana.setChefe(claudio);
+
+
         manager.getTransaction().commit();
 
     }
