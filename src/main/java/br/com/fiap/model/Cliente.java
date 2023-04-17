@@ -87,8 +87,7 @@ public class Cliente {
         sb.append("id=").append(id);
         sb.append(", nome='").append(nome).append('\'');
         sb.append(", email='").append(email).append('\'');
-        sb.append(", pedidos=").append(pedidos);
-        sb.append('}');
+         sb.append('}');
         return sb.toString();
     }
 }

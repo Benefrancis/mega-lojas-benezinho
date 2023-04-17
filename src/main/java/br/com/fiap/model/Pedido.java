@@ -90,7 +90,7 @@ public class Pedido {
         final StringBuilder sb = new StringBuilder("Pedido{");
         sb.append("id=").append(id);
         sb.append(", data=").append(data);
-        //  sb.append(", cliente=").append(cliente);
+        sb.append(", cliente=").append(cliente);
         sb.append(", produtos=").append(produtos);
         sb.append('}');
         return sb.toString();

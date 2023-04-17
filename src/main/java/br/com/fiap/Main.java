@@ -16,7 +16,6 @@ public class Main {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("maria-db");
         EntityManager manager = factory.createEntityManager();
 
-
         salvar(manager);
 
         Pedido pedido = manager.find(Pedido.class, 1L);
