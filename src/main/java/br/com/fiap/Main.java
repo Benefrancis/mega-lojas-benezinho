@@ -74,7 +74,6 @@ public class Main {
         gustavo.addUnidade(sp);
         gustavo.addUnidade(vilaMariana);
 
-
         manager.getTransaction().begin();
         Arrays.asList(matriz, sp, rj, vilaMariana, imirim, copa).forEach(manager::persist);
         Arrays.asList(prof, c, claudio, gustavo).forEach(manager::persist);
@@ -86,7 +85,6 @@ public class Main {
         imirim.setChefe(gustavo);
         vilaMariana.setChefe(claudio);
         manager.getTransaction().commit();
-
 
     }
 
@@ -104,7 +102,6 @@ public class Main {
         var benezinho = new Cliente();
         benezinho.setNome("Benefrancis");
         benezinho.setEmail("benefrancis@gmail.com");
-
 
         var pedido = new Pedido();
         pedido.addProduto(ipad).setCliente(benezinho).setData(LocalDateTime.now());
